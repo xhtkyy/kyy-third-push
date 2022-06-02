@@ -1,0 +1,30 @@
+{
+  "name": "kyy_tang/third_push",
+  "description": "third push server",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "thompson",
+      "email": "so.wo@foxmail.com"
+    }
+  ],
+  "keywords": [
+    "kyy",
+    "kyy_third_push"
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0",
+    "ext-json": "*",
+    "google/protobuf": "^3.6.1",
+    "grpc/grpc": "^1.42.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "GPBMetadata\\": "grpc/GPBMetadata",
+      "ThirdPush\\": "grpc/ThirdPush",
+      "KyyPush\\": "src"
+    }
+  }
+}
