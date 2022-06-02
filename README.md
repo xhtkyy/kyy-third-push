@@ -1,2 +1,2 @@
-# third_push
+# kyy-third-push
 Kyy push communication service
