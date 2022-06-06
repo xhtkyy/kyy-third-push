@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Config;
 use KyyPush\exception\KyyThirdPushException;
 use ThirdPush\Action;
 use ThirdPush\ActionType;
-use ThirdPush\AppUsersList;
+use ThirdPush\AppList;
 use ThirdPush\Params;
 use ThirdPush\Reply;
 use ThirdPush\Users;
@@ -63,7 +63,7 @@ class PushService {
     public function singleAppPush(int $app, array $ids, string $title, string $content, array $extra = [], array $config = []): array {
         $config = array_merge($this->config, $config);
         //用户列表
-        $user_list = new AppUsersList();
+        $user_list = new AppList();
         $user_list->setApp($app);
         $users = new Users();
         $user_list->setUsers([
@@ -73,6 +73,7 @@ class PushService {
         $action = new Action();
         $action->setType($config['app'][$app]['action_type'] ?? ActionType::ACTIVITY);
         $action->setUrl($config['app'][$app]['action_url'] ?? "");
+        $user_list->setAction($action);
         //构建参数
         $params = new \ThirdPush\Params();
         $params->setMessageType($config['message_type'])
@@ -82,8 +83,7 @@ class PushService {
             ->setEnv($config['env'])
             ->setPlatform($config['platform'])
             ->setExtra(json_encode($extra))
-            ->setAppUserList([$user_list])
-            ->setAction($action);
+            ->setAppList([$user_list]);
 
         return $this->push($params);
     }

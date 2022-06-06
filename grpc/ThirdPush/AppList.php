@@ -9,9 +9,9 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>thirdPush.AppUsersList</code>
+ * Generated from protobuf message <code>thirdPush.AppList</code>
  */
-class AppUsersList extends \Google\Protobuf\Internal\Message
+class AppList extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>.thirdPush.APP app = 1;</code>
@@ -21,6 +21,12 @@ class AppUsersList extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .thirdPush.Users users = 2;</code>
      */
     private $users;
+    /**
+     *动作
+     *
+     * Generated from protobuf field <code>.thirdPush.Action action = 3;</code>
+     */
+    protected $action = null;
 
     /**
      * Constructor.
@@ -30,6 +36,8 @@ class AppUsersList extends \Google\Protobuf\Internal\Message
      *
      *     @type int $app
      *     @type \ThirdPush\Users[]|\Google\Protobuf\Internal\RepeatedField $users
+     *     @type \ThirdPush\Action $action
+     *          动作
      * }
      */
     public function __construct($data = NULL) {
@@ -77,6 +85,32 @@ class AppUsersList extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \ThirdPush\Users::class);
         $this->users = $arr;
+
+        return $this;
+    }
+
+    /**
+     *动作
+     *
+     * Generated from protobuf field <code>.thirdPush.Action action = 3;</code>
+     * @return \ThirdPush\Action
+     */
+    public function getAction()
+    {
+        return $this->action;
+    }
+
+    /**
+     *动作
+     *
+     * Generated from protobuf field <code>.thirdPush.Action action = 3;</code>
+     * @param \ThirdPush\Action $var
+     * @return $this
+     */
+    public function setAction($var)
+    {
+        GPBUtil::checkMessage($var, \ThirdPush\Action::class);
+        $this->action = $var;
 
         return $this;
     }

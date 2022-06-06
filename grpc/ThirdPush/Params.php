@@ -36,49 +36,43 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *指定铃声
      *
-     * Generated from protobuf field <code>string sound = 5;</code>
+     * Generated from protobuf field <code>string sound = 4;</code>
      */
     protected $sound = '';
     /**
-     *动作
+     *推送app列表
      *
-     * Generated from protobuf field <code>.thirdPush.Action action = 4;</code>
+     * Generated from protobuf field <code>repeated .thirdPush.AppList app_list = 5;</code>
      */
-    protected $action = null;
-    /**
-     *用户列表
-     *
-     * Generated from protobuf field <code>repeated .thirdPush.AppUsersList app_user_list = 6;</code>
-     */
-    private $app_user_list;
+    private $app_list;
     /**
      *指定渠道 默认TPNS
      *
-     * Generated from protobuf field <code>.thirdPush.Channel channel = 7;</code>
+     * Generated from protobuf field <code>.thirdPush.Channel channel = 6;</code>
      */
     protected $channel = 0;
     /**
      *环境 默认dev
      *
-     * Generated from protobuf field <code>.thirdPush.Env env = 8;</code>
+     * Generated from protobuf field <code>.thirdPush.Env env = 7;</code>
      */
     protected $env = 0;
     /**
      *推送目标
      *
-     * Generated from protobuf field <code>string audience = 9;</code>
+     * Generated from protobuf field <code>string audience = 8;</code>
      */
     protected $audience = '';
     /**
      *消息类型 TPNS有效
      *
-     * Generated from protobuf field <code>string message_type = 10;</code>
+     * Generated from protobuf field <code>string message_type = 9;</code>
      */
     protected $message_type = '';
     /**
      *指定推送平台
      *
-     * Generated from protobuf field <code>.thirdPush.Platform platform = 11;</code>
+     * Generated from protobuf field <code>.thirdPush.Platform platform = 10;</code>
      */
     protected $platform = 0;
 
@@ -96,10 +90,8 @@ class Params extends \Google\Protobuf\Internal\Message
      *          扩展参数
      *     @type string $sound
      *          指定铃声
-     *     @type \ThirdPush\Action $action
-     *          动作
-     *     @type \ThirdPush\AppUsersList[]|\Google\Protobuf\Internal\RepeatedField $app_user_list
-     *          用户列表
+     *     @type \ThirdPush\AppList[]|\Google\Protobuf\Internal\RepeatedField $app_list
+     *          推送app列表
      *     @type int $channel
      *          指定渠道 默认TPNS
      *     @type int $env
@@ -198,7 +190,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *指定铃声
      *
-     * Generated from protobuf field <code>string sound = 5;</code>
+     * Generated from protobuf field <code>string sound = 4;</code>
      * @return string
      */
     public function getSound()
@@ -209,7 +201,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *指定铃声
      *
-     * Generated from protobuf field <code>string sound = 5;</code>
+     * Generated from protobuf field <code>string sound = 4;</code>
      * @param string $var
      * @return $this
      */
@@ -222,53 +214,27 @@ class Params extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *动作
+     *推送app列表
      *
-     * Generated from protobuf field <code>.thirdPush.Action action = 4;</code>
-     * @return \ThirdPush\Action
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
-
-    /**
-     *动作
-     *
-     * Generated from protobuf field <code>.thirdPush.Action action = 4;</code>
-     * @param \ThirdPush\Action $var
-     * @return $this
-     */
-    public function setAction($var)
-    {
-        GPBUtil::checkMessage($var, \ThirdPush\Action::class);
-        $this->action = $var;
-
-        return $this;
-    }
-
-    /**
-     *用户列表
-     *
-     * Generated from protobuf field <code>repeated .thirdPush.AppUsersList app_user_list = 6;</code>
+     * Generated from protobuf field <code>repeated .thirdPush.AppList app_list = 5;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getAppUserList()
+    public function getAppList()
     {
-        return $this->app_user_list;
+        return $this->app_list;
     }
 
     /**
-     *用户列表
+     *推送app列表
      *
-     * Generated from protobuf field <code>repeated .thirdPush.AppUsersList app_user_list = 6;</code>
-     * @param \ThirdPush\AppUsersList[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .thirdPush.AppList app_list = 5;</code>
+     * @param \ThirdPush\AppList[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setAppUserList($var)
+    public function setAppList($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \ThirdPush\AppUsersList::class);
-        $this->app_user_list = $arr;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \ThirdPush\AppList::class);
+        $this->app_list = $arr;
 
         return $this;
     }
@@ -276,7 +242,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *指定渠道 默认TPNS
      *
-     * Generated from protobuf field <code>.thirdPush.Channel channel = 7;</code>
+     * Generated from protobuf field <code>.thirdPush.Channel channel = 6;</code>
      * @return int
      */
     public function getChannel()
@@ -287,7 +253,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *指定渠道 默认TPNS
      *
-     * Generated from protobuf field <code>.thirdPush.Channel channel = 7;</code>
+     * Generated from protobuf field <code>.thirdPush.Channel channel = 6;</code>
      * @param int $var
      * @return $this
      */
@@ -302,7 +268,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *环境 默认dev
      *
-     * Generated from protobuf field <code>.thirdPush.Env env = 8;</code>
+     * Generated from protobuf field <code>.thirdPush.Env env = 7;</code>
      * @return int
      */
     public function getEnv()
@@ -313,7 +279,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *环境 默认dev
      *
-     * Generated from protobuf field <code>.thirdPush.Env env = 8;</code>
+     * Generated from protobuf field <code>.thirdPush.Env env = 7;</code>
      * @param int $var
      * @return $this
      */
@@ -328,7 +294,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *推送目标
      *
-     * Generated from protobuf field <code>string audience = 9;</code>
+     * Generated from protobuf field <code>string audience = 8;</code>
      * @return string
      */
     public function getAudience()
@@ -339,7 +305,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *推送目标
      *
-     * Generated from protobuf field <code>string audience = 9;</code>
+     * Generated from protobuf field <code>string audience = 8;</code>
      * @param string $var
      * @return $this
      */
@@ -354,7 +320,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *消息类型 TPNS有效
      *
-     * Generated from protobuf field <code>string message_type = 10;</code>
+     * Generated from protobuf field <code>string message_type = 9;</code>
      * @return string
      */
     public function getMessageType()
@@ -365,7 +331,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *消息类型 TPNS有效
      *
-     * Generated from protobuf field <code>string message_type = 10;</code>
+     * Generated from protobuf field <code>string message_type = 9;</code>
      * @param string $var
      * @return $this
      */
@@ -380,7 +346,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *指定推送平台
      *
-     * Generated from protobuf field <code>.thirdPush.Platform platform = 11;</code>
+     * Generated from protobuf field <code>.thirdPush.Platform platform = 10;</code>
      * @return int
      */
     public function getPlatform()
@@ -391,7 +357,7 @@ class Params extends \Google\Protobuf\Internal\Message
     /**
      *指定推送平台
      *
-     * Generated from protobuf field <code>.thirdPush.Platform platform = 11;</code>
+     * Generated from protobuf field <code>.thirdPush.Platform platform = 10;</code>
      * @param int $var
      * @return $this
      */
