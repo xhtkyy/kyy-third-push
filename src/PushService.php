@@ -67,12 +67,13 @@ class PushService {
         $user_list->setApp($app);
         $users = new Users();
         $user_list->setUsers([
+            //只设置id列表 不设置用户类型会自动获取app的默认用户类型
             $users->setId($ids)
         ]);
         //设置action
         $action = new Action();
-        $action->setType($config['app'][$app]['action_type'] ?? ActionType::ACTIVITY);
-        $action->setUrl($config['app'][$app]['action_url'] ?? "");
+        $action->setType($config['app'][$app]['action_type'] ?? ActionType::INTENT);
+        $action->setUrl($config['app'][$app]['action_url'] ?? json_encode($extra, JSON_UNESCAPED_UNICODE));
         $user_list->setAction($action);
         //构建参数
         $params = new \ThirdPush\Params();
