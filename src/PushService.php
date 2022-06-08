@@ -72,8 +72,8 @@ class PushService {
         ]);
         //设置action
         $action = new Action();
-        $action->setType($config['app'][$app]['action_type'] ?? ActionType::INTENT);
-        $action->setUrl($config['app'][$app]['action_url'] ?? json_encode($extra, JSON_UNESCAPED_UNICODE));
+        $action->setType($config['app'][$app]['action_type'] ?? ActionType::ACTIVITY);
+        $action->setUrl($config['app'][$app]['action_url'] ?? '');
         $user_list->setAction($action);
         //构建参数
         $params = new \ThirdPush\Params();
