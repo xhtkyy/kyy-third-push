@@ -22,8 +22,8 @@ class KyyThirdPushServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        $this->app->singleton('kyy_third_push', function ($app) {
-            return $this->app->make(PushService::class, [$app['config']]);
+        $this->app->singleton(PushService::class, function ($app) {
+            return new PushService(config("kyy_third_push"));
         });
     }
 }

@@ -19,8 +19,8 @@ class PushService {
 
     protected $config = [];
 
-    public function __construct(Repository $repository = null) {
-        $this->config = $repository ? $repository->get("kyy_third_push") : Config::get("kyy_third_push");
+    public function __construct($config) {
+        $this->config = $config ?? [];
     }
 
     /**
