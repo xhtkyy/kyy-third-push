@@ -24,6 +24,7 @@ class PushService {
     }
 
     /**
+     * @param int $user_type
      * @param array $ids
      * @param string $title
      * @param string $content
@@ -32,43 +33,44 @@ class PushService {
      * @return array
      * @throws KyyThirdPushException
      */
-    public function pushToSeatApp(array $ids, string $title, string $content, array $extra = [], array $config = []): array {
+    public function pushToSeatApp(int $user_type, array $ids, string $title, string $content, array $extra = [], array $config = []): array {
         return $this->singleAppPush(\ThirdPush\APP::SEAT_APP, ...func_get_args());
     }
 
     /**
-     * @param string $title
+     * @param int $user_type
      * @param array $ids
+     * @param string $title
      * @param string $content
      * @param array $extra
      * @param array $config
      * @return array
      * @throws KyyThirdPushException
      */
-    public function pushToMallApp(array $ids, string $title, string $content, array $extra = [], array $config = []): array {
+    public function pushToMallApp(int $user_type, array $ids, string $title, string $content, array $extra = [], array $config = []): array {
         return $this->singleAppPush(\ThirdPush\APP::MALL_APP, ...func_get_args());
     }
 
     /**
      * 单APP推送
      * @param int $app
-     * @param string $title
+     * @param int $user_type
      * @param array $ids
+     * @param string $title
      * @param string $content
      * @param array $extra
      * @param array $config
      * @return array
      * @throws KyyThirdPushException
      */
-    public function singleAppPush(int $app, array $ids, string $title, string $content, array $extra = [], array $config = []): array {
+    public function singleAppPush(int $app, int $user_type, array $ids, string $title, string $content, array $extra = [], array $config = []): array {
         $config = array_merge($this->config, $config);
         //用户列表
         $user_list = new AppList();
         $user_list->setApp($app);
         $users = new Users();
         $user_list->setUsers([
-            //只设置id列表 不设置用户类型会自动获取app的默认用户类型
-            $users->setId($ids)
+            $users->setType($user_type)->setId($ids)
         ]);
         //设置action
         $action = new Action();
