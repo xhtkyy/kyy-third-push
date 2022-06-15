@@ -75,6 +75,12 @@ class Params extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.thirdPush.Platform platform = 10;</code>
      */
     protected $platform = 0;
+    /**
+     *是否检查推送设置
+     *
+     * Generated from protobuf field <code>bool check_setting = 11;</code>
+     */
+    protected $check_setting = false;
 
     /**
      * Constructor.
@@ -102,6 +108,8 @@ class Params extends \Google\Protobuf\Internal\Message
      *          消息类型 TPNS有效
      *     @type int $platform
      *          指定推送平台
+     *     @type bool $check_setting
+     *          是否检查推送设置
      * }
      */
     public function __construct($data = NULL) {
@@ -365,6 +373,32 @@ class Params extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \ThirdPush\Platform::class);
         $this->platform = $var;
+
+        return $this;
+    }
+
+    /**
+     *是否检查推送设置
+     *
+     * Generated from protobuf field <code>bool check_setting = 11;</code>
+     * @return bool
+     */
+    public function getCheckSetting()
+    {
+        return $this->check_setting;
+    }
+
+    /**
+     *是否检查推送设置
+     *
+     * Generated from protobuf field <code>bool check_setting = 11;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setCheckSetting($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->check_setting = $var;
 
         return $this;
     }

@@ -80,6 +80,7 @@ class PushService {
         //构建参数
         $params = new \ThirdPush\Params();
         $params->setMessageType($config['message_type'])
+            ->setCheckSetting($config['check_setting'] ?? true)
             ->setChannel($config['channel'])
             ->setTitle($title)
             ->setContent($content)
